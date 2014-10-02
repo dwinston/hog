@@ -53,7 +53,7 @@ def largest_digit(integer):
     0
     """
     assert type(integer) == int
-    return max(map(int, str(integer)))
+    return int(max(str(integer)))
 
 # Playing a game
 
@@ -274,10 +274,8 @@ def swap_strategy(score, opponent_score):
         return 0
     elif harmful_swap(score_after_roll_0, opponent_score):
         return BASELINE_NUM_ROLLS
-    elif free_bacon >= BACON_MARGIN:
-        return 0
     else:
-        return BASELINE_NUM_ROLLS
+        return bacon_strategy(score, opponent_score)
 
 def beneficial_swap(score, opponent_score):
     return score * 2 == opponent_score
